@@ -7,6 +7,7 @@ const helper = require('./helper.js');
 
 const TIME_SUFFIX = "_deadtime"
 
+
 /**
  * 设置
  * k 键key
@@ -36,7 +37,8 @@ function set(k, v, t = 86400 * 30) {
 function get(k, def = null) {
 	if (!k) return null;
 
-	let deadtime = wx.getStorageSync(k + TIME_SUFFIX); 
+  let deadtime = wx.getStorageSync(k + TIME_SUFFIX); 
+  console.log('从微信框架中获取到token'+deadtime);
 	if (!deadtime) return def;
  
 	deadtime = parseInt(deadtime); 
@@ -47,11 +49,11 @@ function get(k, def = null) {
 			wx.removeStorageSync(k); 
 			wx.removeStorageSync(k + TIME_SUFFIX); 
 			return def;
-		}
+    }
 	} 
 
 	let res = wx.getStorageSync(k);
- 
+ console.log('获取到k为'+ k+'的值为：' +res)
 	if (helper.isDefined(res)) {
 		return res;
 	} else {
@@ -73,7 +75,7 @@ function remove(k) {
  * 清除所有key
  */
 function clear() {
-	wx.clearStorageSync();
+  wx.clearStorageSync();
 }
 
 module.exports = {

@@ -19,11 +19,12 @@ class BaseController {
 		this._openId = openId; //用户身份
 		this._event = event; // 所有参数   
 		this._request = event.params; //数据参数
-
+    console.log('controller 统一使用openId为：'+openId)
+    console.log('是否测试模式:'+config.TEST_MODE)
 		// 测试模式
 		if (config.TEST_MODE)
-			openId = config.TEST_TOKEN_ID;
- 
+      openId = config.TEST_TOKEN_ID;
+      
 		if (!openId) {
 			console.error('OPENID is unfined');
 			throw new AppError('OPENID is unfined', appCode.SVR);

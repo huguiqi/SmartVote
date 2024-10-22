@@ -38,11 +38,16 @@ class PassportBiz extends BaseBiz {
 	static setToken(token) {
 		if (!token) return;
 		cacheHelper.set(constants.CACHE_TOKEN, token, constants.CACHE_TOKEN_EXPIRE);
-	}
+  }
+  
+  static clearToken(){
+    cacheHelper.remove(constants.CACHE_TOKEN);
+  }
 
 	//  获取user id 
 	static getUserId() {
-		let token = cacheHelper.get(constants.CACHE_TOKEN);
+    let token = cacheHelper.get(constants.CACHE_TOKEN);
+    console.log('this is token'+token)
 		if (!token) return '';
 		return token.id || '';
 	}
@@ -63,7 +68,8 @@ class PassportBiz extends BaseBiz {
 
 	// 登录判断及处理
 	static async loginCheck(mustLogin = false, method = 'back', title = '', that = null) {
-		let token = cacheHelper.get(constants.CACHE_TOKEN);
+    let token = cacheHelper.get(constants.CACHE_TOKEN);
+    console.log('静默登陆中。。。。。'+token)
 		if (token) {
 			if (that)
 				that.setData({

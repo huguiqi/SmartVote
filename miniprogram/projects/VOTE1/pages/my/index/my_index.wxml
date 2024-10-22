@@ -1,13 +1,14 @@
 <view class="main {{skin.IS_SUB?'sub-margin-bottom':''}}">
 
 	<!--top area begin-->
-	<view class="upside upside-shadow" bindtap="url" data-url="{{user?'../edit/my_edit':'../reg/my_reg'}}">
-		<image wx:if="{{upImg}}" mode="aspectFill" lazy-load class="upImg loading" src="{{upImg}}" />
+	<view class="upside upside-shadow" bindtap="url" data-url="{{user?'../edit/my_edit':'../reg/my_login'}}">
+		<!-- <view class="upside upside-shadow"> -->
+    <image wx:if="{{upImg}}" mode="aspectFill" lazy-load class="upImg loading" src="{{upImg}}" />
 		<view class="user-bar">
 			<view class="detail">
 				<view class="name text-cut">{{user?user.USER_NAME:'欢迎回来~~~'}}</view>
 				<view class="desc">
-					<view class="text-cut">{{user?'欢迎回来~~~':'马上注册，使用更多功能'}}</view>
+					<view class="text-cut">{{user?'欢迎回来~~~':'请联系管理员，开通会员，使用更多功能'}}</view>
 				</view>
 			</view>
 			<view class="avatar">

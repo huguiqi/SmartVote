@@ -22,7 +22,7 @@ class BaseProjectService extends BaseService {
 		const CONST_PIC = '/images/cover.gif';
 
 		const NEWS_CATE = '1=动态';
-		const VOTE_CATE = '1=节日投票,2=活动评比,3=才艺比拼,4=单位政企,5=其他投票';
+		const VOTE_CATE = '1=宠爱金,2=免单投票,3=评价异议,4=活动投票,5=其他投票';
 
 
 		if (await dbUtil.isExistCollection(F(INSTALL_CL))) {

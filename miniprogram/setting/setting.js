@@ -1,6 +1,6 @@
 module.exports = {
 	//### 环境相关 
-	CLOUD_ID: 'vote-test-8gpoac46502001f9', //云服务id ,本地测试环境 
+	CLOUD_ID: 'test-happygo-8g7zvkxccaeedf76', //云服务id ,本地测试环境 
 
 	// #### 版本信息 
 	VER: 'Vote build 2022.07.26',

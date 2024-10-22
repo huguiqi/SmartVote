@@ -36,10 +36,10 @@ module.exports = {
 		{ color1: '#000000', color2: '#999999' },
 	], 
 	VOTE_CATE: [
-		{ id: 1, title: '节日投票' },
-		{ id: 2, title: '活动评比' },
-		{ id: 3, title: '才艺比拼' },
-		{ id: 4, title: '单位政企' },
+		{ id: 1, title: '宠爱金' },
+		{ id: 2, title: '免单投票' },
+		{ id: 3, title: '评价异议' },
+		{ id: 4, title: '活动投票' },
 		{ id: 5, title: '其他投票' }
 	],
 	VOTE_FIELDS: [

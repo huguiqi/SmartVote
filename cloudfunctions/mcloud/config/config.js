@@ -1,7 +1,7 @@
 module.exports = {
 
 	//### 环境相关 
-	CLOUD_ID: 'vote-test-8gpoac46502001f9', //你的云环境id   
+	CLOUD_ID: 'test-happygo-8g7zvkxccaeedf76', //你的云环境id   
 
 	// ##################################################################   
 	COLLECTION_PRFIX: 'bx_',

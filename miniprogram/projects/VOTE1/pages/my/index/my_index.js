@@ -12,6 +12,7 @@ const PublicBiz = require('../../../../../comm/biz/public_biz.js');
 const AdminBiz = require('../../../../../comm/biz/admin_biz.js');
 const setting = require('../../../../../setting/setting.js');
 const PassportBiz = require('../../../../../comm/biz/passport_biz.js');
+const constants = require('../../../../../comm/constants.js');
 
 Page({
 	data: {
@@ -24,7 +25,8 @@ Page({
 	onLoad: async function (options) {
 		if (PassportBiz.isLogin()) {
 			let user = {};
-			user.USER_NAME = PassportBiz.getUserName();
+      user.USER_NAME = PassportBiz.getUserName();
+      console.log('获取到user是'+user.USER_NAME)
 			this.setData({ user });
 		}
 
@@ -59,12 +61,16 @@ Page({
 	},
 	
 	_loadUser: async function (e) {
+    if(!PassportBiz.isLogin()){
+       return;
+    }
 
 		let opts = {
 			title: 'bar'
 		}
 		let user = await cloudHelper.callCloudData('passport/my_detail', {}, opts);
-		if (!user) {
+    console.log('从云库中拉取用户信息'+user.USER_NAME)
+    if (!user) {
 			this.setData({
 				user: null
 			});
@@ -80,7 +86,7 @@ Page({
 	 * 页面相关事件处理函数--监听用户下拉动作
 	 */
 	onPullDownRefresh: async function () { 
-		await this._loadUser();
+    await this._loadUser();
 		wx.stopPullDownRefresh();
 	},
 
@@ -108,7 +114,8 @@ Page({
 			success: async res => {
 				let idx = res.tapIndex;
 				if (idx == 0) {
-					cacheHelper.clear();
+          PassportBiz.clearToken();
+          cacheHelper.clear();
 					pageHelper.showNoneToast('清除缓存成功');
 				}
 
